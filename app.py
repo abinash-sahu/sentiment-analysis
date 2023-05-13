@@ -35,7 +35,9 @@ def run():
             p = [i for i in classifier(tweet_list)]
             q=[p[i]['label'] for i in range(len(p))]
             df = pd.DataFrame(list(zip(tweet_list, q)),columns =['Latest'+str(number_of_tweets)+'Tweets'+'on'+"Customer Support on Twitter", 'sentiment'])
+            df2 = df['sentiment'].value_counts().reset_index()
             st.write(df)
+            st.bar_chart(chart_data)
  
 
 if __name__=='__main__':
