@@ -24,13 +24,13 @@ def run():
     with st.form(key='Enter name'):
         st.header('Upload the twitter data for sentiment analysis')
         uploaded_file = st.file_uploader('Upload a file')
-        tweets = pd.read_csv(uploaded_file)
         number_of_tweets = st.number_input('Enter the number of latest tweets for which you want to know the sentiment(Maximum 50 tweets)', 0,50,10)
-        final_tweets = tweets[['text']].head(number_of_tweets)
         submit_button = st.form_submit_button(label='Submit')
         if submit_button:
             #tweets =tw.Cursor(api.search_tweets,q=search_words,lang=”en”).items(number_of_tweets)
             #tweet_list = [i.text for i in tweets]
+            tweets = pd.read_csv(uploaded_file)
+            final_tweets = tweets[['text']].head(number_of_tweets)
             tweet_list = final_tweets['text'].tolist()
             p = [i for i in classifier(tweet_list)]
             q=[p[i]['label'] for i in range(len(p))]
