@@ -16,8 +16,8 @@ from transformers import pipeline
 
 classifier = pipeline('sentiment-analysis')
 
-st.title('Live Twitter Sentiment Analysis with Tweepy and HuggingFace Transformers')
-st.markdown('This app uses tweepy to get tweets from twitter based on the input name/phrase. It then processes the tweets through HuggingFace transformers pipeline function for sentiment analysis. The resulting sentiments and corresponding tweets are then put in a dataframe for display which is what you see as result.')
+st.title('Twitter Sentiment Analysis with Tweepy and HuggingFace Transformers')
+st.markdown('Upload list of Tweets from the database. It then processes the tweets through HuggingFace transformers pipeline function for sentiment analysis. The resulting sentiments and corresponding tweets are then put in a dataframe for display which is what you see as result.')
 #     search_words = st.text_input('Enter the name for which you want to know the sentiment')
     
 def run():
